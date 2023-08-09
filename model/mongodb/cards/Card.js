@@ -13,21 +13,10 @@ const cardSchema = new mongoose.Schema({
     ratingUsers: [String],
     ratingTotalScore: { type: Number },
   },
-  stock: [
-    [
-      {
-        size: {
-          height: { type: Number },
-          width: { type: Number },
-          length: { type: Number },
-        },
-        price: { type: Number },
-        cart: [String],
-        color: { type: String },
-        stock: { type: Number },
-      },
-    ],
-  ],
+  price: { type: Number },
+  cart: [String],
+  stock: { type: Number },
+  contains: { type: Number },
   createdAt: Created_At,
   user_id: {
     type: mongoose.Schema.Types.ObjectId,

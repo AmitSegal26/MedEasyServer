@@ -79,16 +79,11 @@ router.get("/getCart", authmw, async (req, res) => {
       return;
     }
     for (const card of cardsArr) {
-      let { stock } = card;
-      for (let i = 0; i < stock.length; i++) {
-        for (let j = 0; j < stock[i].length; j++) {
-          let { cart } = stock[i][j];
-          for (const user of cart) {
-            if (user == _id) {
-              userCardsArr.push(card);
-              break;
-            }
-          }
+      let { cart } = card;
+      for (const user of cart) {
+        if (user == _id) {
+          userCardsArr.push(card);
+          break;
         }
       }
     }
@@ -185,33 +180,19 @@ router.patch("/cart/:id", authmw, async (req, res) => {
     let addedToCart = false;
     let cardId = req.params.id;
     await IDValidation(cardId);
-    if (
-      req.body &&
-      (!req.body.hasOwnProperty("rowIndex") ||
-        !req.body.hasOwnProperty("columnIndex"))
-    ) {
-      throw new CustomError("please enter indexes of the array");
-    }
+
     let currCard = await cardsServiceModel.getCardById(cardId);
     if (!currCard) {
       throw new CustomError("no card found to add");
     }
-    let { rowIndex, columnIndex } = req.body;
     let newCurrCard = JSON.parse(JSON.stringify(currCard));
-    if (
-      newCurrCard.stock[rowIndex][columnIndex].cart.find(
-        (userId) => userId == req.userData._id
-      )
-    ) {
-      newCurrCard.stock[rowIndex][columnIndex].cart = newCurrCard.stock[
-        rowIndex
-      ][columnIndex].cart.filter((userId) => userId != req.userData._id);
+    if (newCurrCard.cart.find((userId) => userId == req.userData._id)) {
+      newCurrCard.cart = newCurrCard.cart.filter(
+        (userId) => userId != req.userData._id
+      );
     } else {
       addedToCart = true;
-      newCurrCard.stock[rowIndex][columnIndex].cart = [
-        ...newCurrCard.stock[rowIndex][columnIndex].cart,
-        req.userData._id,
-      ];
+      newCurrCard.cart = [...newCurrCard.cart, req.userData._id];
     }
     currCard = { ...newCurrCard };
     res.status(200).json({

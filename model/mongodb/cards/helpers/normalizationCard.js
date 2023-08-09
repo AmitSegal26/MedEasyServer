@@ -35,14 +35,10 @@ const normalizeCard = (card, userId) => {
     ratingTotalScore: 0,
     ratingUsers: [],
   };
-  card.stock = card.stock || [[{ size: {} }]];
-  card.stock[0][0].color = card.stock[0][0].color || "";
-  card.stock[0][0].price = card.stock[0][0].price || null;
-  card.stock[0][0].cart = card.stock[0][0].cart || [];
-  card.stock[0][0].stock = card.stock[0][0].stock || null;
-  card.stock[0][0].size.height = card.stock[0][0].size.height || null;
-  card.stock[0][0].size.width = card.stock[0][0].size.width || null;
-  card.stock[0][0].size["length"] = card.stock[0][0].size["length"] || null;
+  card.price = card.price || null;
+  card.contains = card.contains || null;
+  card.cart = card.cart || [];
+  card.stock = card.stock || null;
 
   card.user_id = card.user_id || userId;
 
