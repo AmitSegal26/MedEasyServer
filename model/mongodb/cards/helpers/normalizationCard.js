@@ -35,10 +35,10 @@ const normalizeCard = (card, userId) => {
     ratingTotalScore: 0,
     ratingUsers: [],
   };
-  card.price = card.price || null;
-  card.contains = card.contains || null;
+  card.price = card.price || 0;
+  card.contains = card.contains || 0;
   card.cart = card.cart || [];
-  card.stock = card.stock || null;
+  card.stock = card.stock || 0;
 
   card.user_id = card.user_id || userId;
 

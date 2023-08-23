@@ -229,33 +229,10 @@ To access certain endpoints, [AUTHORIZATION known as TOKEN - *header key is "x-a
             - }
           - alt: string, min length 2, max length 256, required
           - }
-        - stock:[
-
-          - [
-
-            - {
-              - color:<Hexadecimal string color code> EXAMPLE: "#abcdef"
-              - stock:number
-              - price: number
-              - size:{
-                - width:number
-                - height:length
-                - length:number
-                }
-              }
-            ]
-          ]
+        - stock: number, min 0, required
+        - price: number, min 0, required
+        - contains: number, min 0, required
       }
-
-  - !!**NOTICE: {stock} property is 2D Array (matrix) which dedicated to managing stock for different fornitures of variety of colors and sizes, with different price for each one.**
-
-  - HOW THE MATRIX OF THE STOCK WORKS:
-
-  | `color`/`size` | 40 X 40 X 80                   | 40 X 40 X 80                  |
-  | -------------- | ------------------------------ | ----------------------------- |
-  | RED            | `stock:68+price:100$+cart:[]`  | `stock:40+price:100$+cart:[]` |
-  | GREEN          | `stock:338+price:80$+cart:[]`  | `stock:75+price:120$+cart:[]` |
-  | BLUE           | `stock:124+price:110$+cart:[]` | `stock:87+price:35$+cart:[]`  |
 
 ### EDIT A CARD
 
@@ -278,33 +255,10 @@ To access certain endpoints, [AUTHORIZATION known as TOKEN - *header key is "x-a
             - }
           - alt: string, min length 2, max length 256, required
           - }
-        - stock:[
-
-          - [
-
-            - {
-              - color:<Hexadecimal string color code> EXAMPLE: "#abcdef"
-              - stock:number
-              - price: number
-              - size:{
-                - width:number
-                - height:length
-                - length:number
-                }
-              }
-            ]
-          ]
+        - stock: number, min 0, required
+        - price: number, min 0, required
+        - contains: number, min 0, required
       }
-
-  - !!**NOTICE: {stock} property is 2D Array (matrix) which dedicated to managing stock for different fornitures of variety of colors and sizes, with different price for each one.**
-
-  - HOW THE MATRIX OF THE STOCK WORKS:
-
-  | `color`/`size` | 40 X 40 X 80                   | 40 X 40 X 80                  |
-  | -------------- | ------------------------------ | ----------------------------- |
-  | RED            | `stock:68+price:100$+cart:[]`  | `stock:40+price:100$+cart:[]` |
-  | GREEN          | `stock:338+price:80$+cart:[]`  | `stock:75+price:120$+cart:[]` |
-  | BLUE           | `stock:124+price:110$+cart:[]` | `stock:87+price:35$+cart:[]`  |
 
 #### RATE A CARD
 

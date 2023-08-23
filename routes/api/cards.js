@@ -190,13 +190,32 @@ router.patch("/cart/:id", authmw, async (req, res) => {
       newCurrCard.cart = newCurrCard.cart.filter(
         (userId) => userId != req.userData._id
       );
+      newCurrCard.stock++;
     } else {
       addedToCart = true;
       newCurrCard.cart = [...newCurrCard.cart, req.userData._id];
+      newCurrCard.stock--;
     }
     currCard = { ...newCurrCard };
+
+    let updatedCartCard = await cardsServiceModel.updateCard(cardId, currCard);
+    let newUpdatedCartCard = JSON.parse(JSON.stringify(updatedCartCard));
+    if (
+      newUpdatedCartCard.image &&
+      newUpdatedCartCard.image.imageFile &&
+      newUpdatedCartCard.image.imageFile.data
+    ) {
+      let tempImage = JSON.parse(
+        JSON.stringify(newUpdatedCartCard.image.imageFile.data)
+      );
+      const bufferData = Buffer.from(tempImage.data);
+      // Convert the Buffer object to a Base64-encoded string
+      const base64Data = bufferData.toString("base64");
+
+      newUpdatedCartCard.image.dataStr = base64Data + "";
+    }
     res.status(200).json({
-      data: await cardsServiceModel.updateCard(cardId, currCard),
+      data: newUpdatedCartCard,
       addedToCart,
     });
   } catch (err) {
