@@ -103,7 +103,7 @@ router.post(
   async (req, res) => {
     try {
       await cardsValidationService.cardValidation(req.body);
-      let normalCard = normalizeCardService(req.body, req.userData._id);
+      let normalCard = await normalizeCardService(req.body, req.userData._id);
       const dataFromMongoose = await cardsServiceModel.createCard(normalCard);
       res.json(dataFromMongoose);
     } catch (err) {

@@ -6,10 +6,13 @@ const createCardSchema = Joi.object({
   stock: Joi.number().min(0).required(),
   price: Joi.number().min(0).required(),
   contains: Joi.number().min(0).required(),
-  image: Joi.object().keys({
-    imageFile: Joi.any(),
-    alt: Joi.string().min(2).max(256).required(),
-  }),
+  user_id: Joi.string().min(0).allow(""),
+  image: Joi.object()
+    .keys({
+      imageFile: Joi.any(),
+      alt: Joi.string().min(2).max(256).required(),
+    })
+    .allow(null),
 });
 
 const validateCardSchema = (userInput) => {
