@@ -11,6 +11,7 @@ const authmw = require("../../middleware/authMiddleware");
 const failedLoginStoreService = require("../../model/mongodb/failedLoginStore/FailedLoginStoreService");
 const failedLoginHelper = require("../../model/failedLoginStoreService/helpers/failedLoginStoreNormalizations");
 const handleEmailExistsErrorFromMongoose = require("../../utils/emailExists");
+const handleImageToData = require("../../utils/handleImageToData");
 //http://localhost:8181/api/users/users
 //admin only
 //get an array of all users
@@ -58,22 +59,7 @@ router.get("/userInfo", authmw, async (req, res) => {
     if (!userFromDB) {
       throw new CustomError("something went wrong, try again later");
     }
-    let newUserFromDB = JSON.parse(JSON.stringify(userFromDB));
-    if (
-      newUserFromDB.image &&
-      newUserFromDB.image.imageFile &&
-      newUserFromDB.image.imageFile.data
-    ) {
-      let tempImage = JSON.parse(
-        JSON.stringify(newUserFromDB.image.imageFile.data)
-      );
-      const bufferData = Buffer.from(tempImage.data);
-      // Convert the Buffer object to a Base64-encoded string
-      const base64Data = bufferData.toString("base64");
-
-      newUserFromDB.image.dataStr = base64Data + "";
-    }
-    res.status(200).json(newUserFromDB);
+    res.status(200).json(handleImageToData(userFromDB));
   } catch (err) {
     res.status(400).json(err);
   }
