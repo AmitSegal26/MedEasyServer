@@ -103,6 +103,9 @@ router.put(
   permissionsMiddleware(true, false),
   async (req, res) => {
     try {
+      await IDValidation(req.params.id);
+      let data = await cardsServiceModel.getCardById(req.params.id);
+      req.body.cart = data.cart;
       await cardsValidationService.cardValidation(req.body);
       const cardFromDB = await cardsServiceModel.updateCard(
         req.params.id,

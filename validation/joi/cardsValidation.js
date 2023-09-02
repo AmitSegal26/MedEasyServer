@@ -13,7 +13,7 @@ const createCardSchema = Joi.object({
       alt: Joi.string().min(2).max(256).required(),
     })
     .allow(null),
-});
+}).options({ abortEarly: false });
 
 const validateCardSchema = (userInput) => {
   return createCardSchema.validateAsync(userInput);
