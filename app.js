@@ -9,7 +9,14 @@ const fs = require("fs");
 const apiRouter = require("./routes/api");
 const bodyParser = require("body-parser");
 const app = express();
+//!LOGIN-RADIUS
+const session = require("express-session");
 
+//extending image file upload
+app.use(bodyParser.json({ limit: "1mb" }));
+app.use(bodyParser.urlencoded({ extended: true, limit: "1mb" }));
+
+//!
 //*Hello Checker, enter the url of your needed website to check the server's CORS
 let URLForTheCheckerOfTheProject = "";
 app.use(
@@ -24,7 +31,7 @@ app.use(
   })
 );
 
-//* a contoller for the logger
+//* a controller for the logger to use
 app.use((req, res, next) => {
   const originalJson = res.json;
   res.json = function (data) {
