@@ -1,22 +1,22 @@
 [
   {
-    "title": "pills 1st",
-    "description": "the FIRST one",
+    "title": "Omega3 Fish Oil",
+    "description": "Omega-3 pills are dietary supplements that contain essential fatty acids known as omega-3 fatty acids. These fatty acids, including EPA (eicosapentaenoic acid) and DHA (docosahexaenoic acid), are commonly found in fatty fish like salmon, as well as in flaxseed and walnuts. Omega-3 pills are taken to supplement the diet and provide health benefits such as supporting heart health, reducing inflammation, and improving brain function. They are often recommended for individuals who don't consume enough omega-3-rich foods in their diet, but it's important to consult with a healthcare professional before starting any dietary supplement.",
     "price": 50,
     "stock": 20,
     "contains": 100
   },
   {
-    "title": "pills 2nd",
-    "description": "the SECOND one",
+    "title": "Curcumin",
+    "description": "Curcumin is a natural compound found in turmeric, a spice commonly used in cooking and traditional medicine. It is known for its potential health benefits, including anti-inflammatory and antioxidant properties. Curcumin supplements are taken to support overall well-being, reduce inflammation, and potentially offer various health advantages. However, it's important to consult with a healthcare professional before using curcumin supplements, especially in high doses, to ensure their safety and effectiveness for specific health concerns.",
     "price": 80,
     "stock": 120,
     "contains": 90
   },
   {
-    "title": "pills 3rd",
-    "description": "the THIRD one",
-    "price": 25,
+    "title": "Multivitamin+",
+    "description": "A multivitamin is a dietary supplement that contains a combination of essential vitamins and minerals. These supplements are designed to provide individuals with a convenient way to meet their daily nutrient needs, especially when their diet may be lacking in certain vitamins and minerals. Multivitamins are taken to support overall health and fill potential nutrient gaps. However, it's essential to use them as a supplement to a balanced diet and not as a substitute for a healthy eating pattern. It's advisable to consult with a healthcare professional before starting any new supplement regimen to ensure it's appropriate for individual health needs.",
+    "price": 150,
     "stock": 65,
     "contains": 150
   }
