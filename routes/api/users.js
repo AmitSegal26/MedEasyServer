@@ -179,6 +179,7 @@ router.delete(
       let user = await usersServiceModel.deleteOneUser(req.params.id);
       if (!user) {
         res.status(204).json({ msg: "no user found by the id that was given" });
+        return;
       }
       res.status(200).json(user);
     } catch (err) {
