@@ -54,6 +54,7 @@ router.get("/getCart", authmw, async (req, res) => {
     } = req;
     let cardsArr = await cardsServiceModel.getAllCards();
     if (cardsArr.length === 0) {
+      res.status(204).json([]);
       return;
     }
     let newCardsArr = JSON.parse(JSON.stringify(cardsArr));
