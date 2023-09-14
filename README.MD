@@ -1,4 +1,8 @@
-# Project Name: Amitsserver
+# Project Name: MedEasyServer (MedEasy)
+
+#### Welcome to my project: 'MedEasy' - a project for ordering medicines and supplement. the project uses both client and server side application using ReactJS and NodeJS.
+
+# Before using the project. make sure to read 'Server's connection' paragraph in order to run the project well.
 
 ## Server Configuration
 
@@ -9,14 +13,7 @@
 ## Server's Characteristics
 
 - The server is logging in the console for every request is sent through the server, it is written in a way you should be able to read and understand.
-- the server is made for managing the Database with cards about forniture and serve a few commands that will be detailed and explained at the API DOCS.
-
-## Google API Integration
-
-To use the Google API, follow these steps:
-
-1. Open the server's front page.
-2. Click on the login button to initiate the Google API integration.
+- the server is made for managing the Database with cards about medicines and serve a few commands that will be detailed and explained at the API DOCS.
 
 ## Server Connection
 
@@ -26,6 +23,7 @@ When connecting to the server, you will encounter the following messages:
 - Server running on http://localhost:8181/
 - Connected to MongoDB
 - **MAKE SURE YOU HAVE ALL THOSE MESSEGES BEFORE CONTNUING USING THE SERVER**
+- there is a false 'production.json' file for enviroment of production because there are some private information about the cluster. The real file exists at the college's project submission.
 
 ## Environment Setup
 
