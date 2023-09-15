@@ -17,14 +17,5 @@
     "gender": "other",
     "email": "michael@gmail.com",
     "password": "Aa123456!"
-  },
-  {
-    "name": {
-      "first": "avior",
-      "last": "mc"
-    },
-    "gender": "male",
-    "email": "avior@gmail.com",
-    "password": "Aa123456!"
   }
 ]
