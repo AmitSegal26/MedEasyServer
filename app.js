@@ -9,8 +9,6 @@ const fs = require("fs");
 const apiRouter = require("./routes/api");
 const bodyParser = require("body-parser");
 const app = express();
-//!LOGIN-RADIUS
-const session = require("express-session");
 
 //extending image file upload
 app.use(bodyParser.json({ limit: "1mb" }));
