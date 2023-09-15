@@ -32,6 +32,15 @@ The server can be run in two environments: production and development.
 - To start the server in production mode, use the command: [npm start]:(atlas MongoDB)
 - To start the server in development mode, use the command: [npm run dev]:(localhost mongoDB)
 
+## Initial Data Of The Server
+
+The server initiates 3 cards (products) + 2 users.
+User 1 (ADMIN):
+email:amit@gmail.com
+User 2 (REGULAR):
+micahel@gmail.com
+**FOR BOTH USERS THE PASSWORD IS** 'Aa123456!'
+
 ## Input Requirements
 
 Certain API endpoints may require specific inputs from the client. Please refer to the documentation for each API for the required inputs.
